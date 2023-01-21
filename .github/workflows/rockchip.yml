@@ -15,8 +15,6 @@ on:
     inputs:
       manual:
         description: '手动触发一次编译'
-  schedule:
-    - cron: 0 */18 * * *
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
