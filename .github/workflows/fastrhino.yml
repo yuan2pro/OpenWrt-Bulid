@@ -45,7 +45,7 @@ jobs:
         sudo timedatectl set-timezone "$TZ"
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
-        echo "FIRMWARE_VERSION=$(date +"%Y.%m.%d-%H%M")-rockchip" >> $GITHUB_ENV
+        echo "FIRMWARE_VERSION=$(date +"%Y.%m.%d-%H%M")-fastrhino" >> $GITHUB_ENV
         echo "START_DATE=$(date +'%Y年%m月%d日 %H点%M分%S秒')" >> $GITHUB_ENV
 
     - name: 下载源码
