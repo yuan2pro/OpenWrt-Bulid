@@ -21,7 +21,7 @@
 # echo 'src-git small https://github.com/kenzok8/small' >>feeds.conf.default
 
 # git clone https://github.com/kenzok8/small-package package/small-package
-git clone https://github.com/kiddin9/openwrt-packages package/openwrt-package
+#git clone https://github.com/kiddin9/openwrt-packages package/openwrt-package
 git clone https://github.com/kuoruan/openwrt-upx.git package/openwrt-upx
 
 # themes添加（svn co 命令意思：指定版本如https://github）
