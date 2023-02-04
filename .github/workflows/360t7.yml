@@ -23,7 +23,7 @@ env:
   REPO_BRANCH: openwrt-21.02
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: config/360t7.config
-  DIY_P1_SH: scripts/diy-part1.sh
+  # DIY_P1_SH: scripts/diy-part1.sh
   DIY_P2_SH: scripts/diy-part2.sh
   UPLOAD_FIRMWARE: true
   UPLOAD_WETRANSFER: true
@@ -57,12 +57,12 @@ jobs:
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
-    - name: 加载软件源
-      run: |
-        [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
-        chmod +x $DIY_P1_SH
-        cd openwrt
-        $GITHUB_WORKSPACE/$DIY_P1_SH
+    # - name: 加载软件源
+    #   run: |
+    #     [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
+    #     chmod +x $DIY_P1_SH
+    #     cd openwrt
+    #     $GITHUB_WORKSPACE/$DIY_P1_SH
 
     - name: 更新软件源
       run: cd openwrt && ./scripts/feeds update -a
