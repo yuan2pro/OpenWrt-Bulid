@@ -21,7 +21,7 @@
 # echo 'src-git small https://github.com/kenzok8/small' >>feeds.conf.default
 
 # git clone https://github.com/kenzok8/small-package package/small-package
-#git clone https://github.com/kiddin9/openwrt-packages package/openwrt-package
+# git clone https://github.com/kiddin9/openwrt-packages package/openwrt-package
 git clone https://github.com/kuoruan/openwrt-upx.git package/openwrt-upx
 
 # themes添加（svn co 命令意思：指定版本如https://github）
@@ -30,7 +30,8 @@ git clone https://github.com/kuoruan/openwrt-upx.git package/openwrt-upx
 #git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
 #git clone https://github.com/openwrt-develop/luci-theme-atmaterial.git package/luci-theme-atmaterial
 
-#git clone https://github.com/kenzok8/openwrt-packages.git package/openwrt-packages
+git clone https://github.com/kenzok8/openwrt-packages package/openwrt-packages
+git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
 
 ##添加额外软件包
 #git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
