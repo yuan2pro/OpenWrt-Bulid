@@ -35,7 +35,7 @@ git clone https://github.com/shidahuilang/openwrt-package package/openwrt-packag
 #git clone https://github.com/liuran001/openwrt-packages package/openwrt-packages
 #git clone https://github.com/kenzok8/small-package package/small-package
 #git clone https://github.com/kenzok8/openwrt-packages package/openwrt-packages
-#git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
+git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
 
 ##添加额外软件包
 #git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
