@@ -11,7 +11,7 @@
 name: rockchip
 
 on:
-  repository_dispatch:
+  # repository_dispatch:
   workflow_dispatch:
     inputs:
       manual:
