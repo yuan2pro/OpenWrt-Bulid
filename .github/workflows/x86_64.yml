@@ -95,32 +95,40 @@ jobs:
         sudo mount -B $GITHUB_WORKSPACE/tmp /tmp && df -hT
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
-        cd /workdir
-        echo "OPENWRT_PATH=$PWD" >> $GITHUB_ENV
-        
 
     - name: Clone source code
       working-directory: /workdir
       run: |
-        cd $OPENWRT_PATH
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+        cd /workdir/openwrt
+        echo "OPENWRT_PATH=$PWD" >> $GITHUB_ENV
+
+    - name: Checkout
+      run: |
+        cd $GITHUB_WORKSPACE
+        git init
+        git remote add origin https://github.com/$GITHUB_REPOSITORY
+        git fetch
+        git checkout -t origin/$CURRENT_BRANCH
 
     - name: Load custom feeds
       run: |
-        [ -e files ] && mv files $OPENWRT_PATH/files
-        [ -e $FEEDS_CONF ] && mv $FEEDS_CONF $GITHUB_WORKSPACE/openwrt/feeds.conf.default
-        chmod +x $DIY_P1_SH
-        chmod +x $DIY_P2_SH
         cd $GITHUB_WORKSPACE
+        [ -e files ] && mv files $OPENWRT_PATH/files
+        [ -e $FEEDS_CONF ] && mv $FEEDS_CONF $OPENWRT_PATH/feeds.conf.default
+        chmod +x $GITHUB_WORKSPACE/$DIY_P1_SH
+        chmod +x $GITHUB_WORKSPACE/$DIY_P2_SH
+        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE $OPENWRT_PATH/.config
+        cd $OPENWRT_PATH
         $GITHUB_WORKSPACE/$DIY_P1_SH
         $GITHUB_WORKSPACE/$DIY_P2_SH
-        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
+
 
     - name: Install feeds
       run: |
-        cd openwrt
+        cd $OPENWRT_PATH
         ./scripts/feeds update -a
         ./scripts/feeds install -a
 
