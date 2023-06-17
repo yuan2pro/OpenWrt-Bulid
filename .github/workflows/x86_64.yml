@@ -23,6 +23,7 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
 #  REPO_URL: https://github.com/istoreos/istoreos
   REPO_BRANCH: master
+  CURRENT_BRANCH: main
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: config/x86_64.config
   DIY_P1_SH: scripts/diy-part1.sh
@@ -111,7 +112,6 @@ jobs:
         git init
         git remote add origin https://github.com/$GITHUB_REPOSITORY
         git fetch
-        echo "CURRENT_BRANCH=$(echo `git symbolic-ref --short HEAD`)" >> $GITHUB_ENV
         git checkout -t origin/$CURRENT_BRANCH
 
     - name: Load custom feeds
