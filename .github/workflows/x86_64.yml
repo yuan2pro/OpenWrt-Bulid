@@ -111,6 +111,7 @@ jobs:
         git init
         git remote add origin https://github.com/$GITHUB_REPOSITORY
         git fetch
+        echo "CURRENT_BRANCH=$(echo `git symbolic-ref --short HEAD`)" >> $GITHUB_ENV
         git checkout -t origin/$CURRENT_BRANCH
 
     - name: Load custom feeds
