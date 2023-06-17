@@ -11,7 +11,7 @@
 name: 360T7
 
 on:
-  repository_dispatch:
+  # repository_dispatch:
   workflow_dispatch:
     inputs:
       manual:
