@@ -18,3 +18,12 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 # sed -i 's/KERNEL_PATCHVER:=6.1/KERNEL_PATCHVER:=5.15/g' ./target/linux/x86/Makefile
 # 使用firewall4
 sed -i 's/+firewall/+uci-firewall/g' feeds/luci/applications/luci-app-firewall/Makefile
+
+# Define the configuration file
+CONFIG_FILE="feeds.conf.default"
+
+# Comment out the second line that contains the original luci source
+sed -i 's|^\(src-git luci https://github.com/coolsnowwolf/luci\)|#\1|' $CONFIG_FILE
+
+# Uncomment the third line if it starts with #src-git luci and has the specified URL
+sed -i 's|^#\(src-git luci https://github.com/coolsnowwolf/luci.git;openwrt-23.05\)|\1|' $CONFIG_FILE
