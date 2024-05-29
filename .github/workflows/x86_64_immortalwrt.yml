@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: x86_64_OpenWrt
+name: x86_64_immortalwrt
 
 on:
   repository_dispatch:
@@ -20,11 +20,11 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/openwrt/openwrt
+  REPO_URL: https://github.com/immortalwrt/immortalwrt.git
   REPO_BRANCH: master
   CURRENT_BRANCH: main
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: config/x86_64.config
+  CONFIG_FILE: config/x86_64_immortalwrt.config
   DIY_P1_SH: scripts/diy-part1.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
@@ -64,7 +64,7 @@ jobs:
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "$TZ"
-        echo "FIRMWARE_VERSION=$(date +"%Y.%m.%d-%H%M")-x86_64_OpenWrt" >> $GITHUB_ENV
+        echo "FIRMWARE_VERSION=$(date +"%Y.%m.%d-%H%M")-x86_64_Immortalwrt" >> $GITHUB_ENV
 
     - name: Combine Disks
       run: |
