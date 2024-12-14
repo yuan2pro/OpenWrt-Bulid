@@ -126,6 +126,7 @@ jobs:
         chmod +x $GITHUB_WORKSPACE/$DIY_P3_SH
         cd $OPENWRT_PATH
         $GITHUB_WORKSPACE/$DIY_P3_SH
+        [ -e $GITHUB_WORKSPACE/$CONFIG_FILE ] && mv $GITHUB_WORKSPACE/$CONFIG_FILE $OPENWRT_PATH/.config
 
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
