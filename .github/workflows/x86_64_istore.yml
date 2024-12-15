@@ -25,7 +25,7 @@ env:
   REPO_BRANCH: istoreos-22.03
   CURRENT_BRANCH: main
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: config/x86_64_lean.config
+  CONFIG_FILE: config/x86_64_istore.config
   DIY_P1_SH: scripts/diy-part1.sh
   DIY_P2_SH: scripts/diy-part2.sh
   DIY_P3_SH: scripts/diy-part3.sh
@@ -120,7 +120,6 @@ jobs:
         chmod +x $GITHUB_WORKSPACE/$DIY_P3_SH
         cd $OPENWRT_PATH
         $GITHUB_WORKSPACE/$DIY_P3_SH
-        ./scripts/feeds install -a
         [ -e $GITHUB_WORKSPACE/$CONFIG_FILE ] && mv $GITHUB_WORKSPACE/$CONFIG_FILE $OPENWRT_PATH/.config
 
     - name: SSH connection to Actions
