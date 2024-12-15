@@ -114,18 +114,13 @@ jobs:
         git fetch
         git checkout -t origin/$CURRENT_BRANCH
 
-    - name: Install feeds
-      run: |
-        cd $OPENWRT_PATH
-        ./scripts/feeds update -a
-        ./scripts/feeds install -a
-
     - name: Load custom feeds
       run: |
         [ -e $GITHUB_WORKSPACE/$FEEDS_CONF ] && mv $GITHUB_WORKSPACE/$FEEDS_CONF $OPENWRT_PATH/feeds.conf.default
         chmod +x $GITHUB_WORKSPACE/$DIY_P3_SH
         cd $OPENWRT_PATH
         $GITHUB_WORKSPACE/$DIY_P3_SH
+        ./scripts/feeds install -a
         [ -e $GITHUB_WORKSPACE/$CONFIG_FILE ] && mv $GITHUB_WORKSPACE/$CONFIG_FILE $OPENWRT_PATH/.config
 
     - name: SSH connection to Actions
