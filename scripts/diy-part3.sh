@@ -13,7 +13,6 @@
 # https://github.com/kenzok8/small
 sed -i '1i src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
 sed -i '2i src-git small https://github.com/kenzok8/small' feeds.conf.default
-sed -i '$a src-git helloworld https://github.com/fw876/helloworld.git' "feeds.conf.default"
 sed -i '$a src-git third_party https://github.com/linkease/istore-packages' feeds.conf.default
 sed -i '$a src-git diskman https://github.com/jjm2473/luci-app-diskman.git' feeds.conf.default
 sed -i '$a src-git oaf https://github.com/jjm2473/OpenAppFilter.git' feeds.conf.default
@@ -24,12 +23,11 @@ sed -i '$a src-git jjm2473_apps https://github.com/jjm2473/openwrt-apps.git' fee
 rm -rf feeds/packages/net/{alist,adguardhome,mosdns,xray*,v2ray*,v2ray*,sing*,smartdns}
 rm -rf feeds/packages/utils/v2dat
 rm -rf feeds/packages/lang/golang
-find feeds/small -mindepth 1 -type d -print0 | while IFS= read -r -d $'\0' dir; do
-  base=$(basename "$dir")
-  if [ -d "feeds/helloworld/$base" ]; then
-    echo "Removing: $dir"  # 先打印要删除的目录，方便检查
-    rm -rf "$dir"
-  fi
-done
+
+rm -rf feeds/small/shadowsocksr-libev
+git clone https://github.com/fw876/helloworld.git helloworld
+mv helloworld/shadowsocksr-libev feeds/small/
+rm -rf helloworld
+
 git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
 ./scripts/feeds install -a 
