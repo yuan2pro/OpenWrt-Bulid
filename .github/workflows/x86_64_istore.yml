@@ -20,12 +20,11 @@ on:
         default: 'false'
 
 env:
-  # REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_URL: https://github.com/istoreos/istoreos
   REPO_BRANCH: istoreos-22.03
   CURRENT_BRANCH: main
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: config/x86_64_istore.config
+  CONFIG_FILE: config/x86_64.config
   DIY_P1_SH: scripts/diy-part1.sh
   DIY_P2_SH: scripts/diy-part2.sh
   DIY_P3_SH: scripts/diy-part3.sh

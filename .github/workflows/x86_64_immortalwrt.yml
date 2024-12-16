@@ -24,7 +24,7 @@ env:
   REPO_BRANCH: master
   CURRENT_BRANCH: main
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: config/x86_64_immortalwrt.config
+  CONFIG_FILE: config/x86_64.config
   DIY_P1_SH: scripts/diy-part1.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true

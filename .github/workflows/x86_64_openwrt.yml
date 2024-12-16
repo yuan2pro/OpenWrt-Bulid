@@ -24,7 +24,7 @@ env:
   REPO_BRANCH: main
   CURRENT_BRANCH: main
   FEEDS_CONF: feeds/feeds.conf.default
-  CONFIG_FILE: config/x86_64_openwrt.config
+  CONFIG_FILE: config/x86_64.config
   DIY_P1_SH: scripts/diy-part1.sh
   DIY_P2_SH: scripts/diy-part2.sh
   DIY_P3_SH: scripts/diy-part3.sh
@@ -117,10 +117,7 @@ jobs:
       run: |
         [ -e $GITHUB_WORKSPACE/$FEEDS_CONF ] && mv $GITHUB_WORKSPACE/$FEEDS_CONF $OPENWRT_PATH/feeds.conf.default
         cd $OPENWRT_PATH
-        ./scripts/feeds update -a && rm -rf feeds/luci/applications/luci-app-mosdns && rm -rf feeds/packages/net/{alist,adguardhome,mosdns,smartdns}
-        rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
-        rm -rf feeds/packages/lang/golang
-        git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
+        ./scripts/feeds update -a
         ./scripts/feeds install -a
         [ -e $GITHUB_WORKSPACE/$CONFIG_FILE ] && mv $GITHUB_WORKSPACE/$CONFIG_FILE $OPENWRT_PATH/.config
 
