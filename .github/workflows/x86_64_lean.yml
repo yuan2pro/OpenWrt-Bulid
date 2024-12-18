@@ -25,7 +25,6 @@ env:
   CURRENT_BRANCH: main
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: config/x86_64.config
-  DIY_P1_SH: scripts/diy-part1.sh
   DIY_P2_SH: scripts/diy-lean.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
@@ -115,9 +114,6 @@ jobs:
     - name: Load custom feeds
       run: |
         [ -e $GITHUB_WORKSPACE/$FEEDS_CONF ] && mv $GITHUB_WORKSPACE/$FEEDS_CONF $OPENWRT_PATH/feeds.conf.default
-        chmod +x $GITHUB_WORKSPACE/$DIY_P1_SH
-        cd $OPENWRT_PATH
-        $GITHUB_WORKSPACE/$DIY_P1_SH
 
     - name: Install feeds
       run: |
