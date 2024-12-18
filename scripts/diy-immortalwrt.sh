@@ -39,7 +39,8 @@
 #git clone https://github.com/kenzok8/openwrt-packages package/openwrt-packages
 #git clone https://github.com/kenzok8/small package/small
 #git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
-
+sed -i '$a src-git smpackage https://github.com/kenzok8/small-package' feeds.conf.default
+rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
 ##添加额外软件包
 #git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
 #git clone https://github.com/vernesong/OpenClash.git package/OpenClash

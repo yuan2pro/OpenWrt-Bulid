@@ -25,7 +25,7 @@ env:
   CURRENT_BRANCH: main
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: config/x86_64.config
-  DIY_P1_SH: scripts/diy-part1.sh
+  DIY_P1_SH: scripts/diy-immortalwrt.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_WETRANSFER: false
