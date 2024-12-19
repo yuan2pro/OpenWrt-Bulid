@@ -111,10 +111,6 @@ jobs:
         git fetch
         git checkout -t origin/$CURRENT_BRANCH
 
-    - name: Load custom feeds
-      run: |
-        [ -e $GITHUB_WORKSPACE/$FEEDS_CONF ] && mv $GITHUB_WORKSPACE/$FEEDS_CONF $OPENWRT_PATH/feeds.conf.default
-
     - name: Install feeds
       run: |
         cd $OPENWRT_PATH
