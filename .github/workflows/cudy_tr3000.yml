@@ -25,9 +25,7 @@ env:
   CURRENT_BRANCH: main
   FEEDS_CONF: feeds/feeds.conf.default
   CONFIG_FILE: config/cudy_tr3000.config
-  DIY_P1_SH: scripts/diy-part1.sh
-  DIY_P2_SH: scripts/diy-part2.sh
-  DIY_P3_SH: scripts/diy-part3.sh
+  DIY_P1_SH: scripts/diy-immortalwrt.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_WETRANSFER: false
@@ -113,9 +111,15 @@ jobs:
         git fetch
         git checkout -t origin/$CURRENT_BRANCH
 
-    - name: Install feeds
+    - name: Load custom feeds
       run: |
         [ -e $GITHUB_WORKSPACE/$FEEDS_CONF ] && mv $GITHUB_WORKSPACE/$FEEDS_CONF $OPENWRT_PATH/feeds.conf.default
+        chmod +x $GITHUB_WORKSPACE/$DIY_P1_SH
+        cd $OPENWRT_PATH
+        $GITHUB_WORKSPACE/$DIY_P1_SH
+        
+    - name: Install feeds
+      run: |
         cd $OPENWRT_PATH
         ./scripts/feeds update -a
         ./scripts/feeds install -a
