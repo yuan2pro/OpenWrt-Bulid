@@ -20,7 +20,7 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/x-wrt/x-wrt
+  REPO_URL: https://github.com/immortalwrt/immortalwrt.git
   REPO_BRANCH: master
   CURRENT_BRANCH: main
   FEEDS_CONF: feeds.conf.default
