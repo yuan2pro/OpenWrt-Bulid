@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: cudy_tr3000
+name: cudy_tr3000_xwrt
 
 on:
   repository_dispatch:
