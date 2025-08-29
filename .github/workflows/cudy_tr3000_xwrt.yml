@@ -20,12 +20,12 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/immortalwrt/immortalwrt.git
+  REPO_URL: https://github.com/x-wrt/x-wrt.git
   REPO_BRANCH: master
   CURRENT_BRANCH: main
-  FEEDS_CONF: feeds.conf.default
+  FEEDS_CONF: feeds.conf.wrt
   CONFIG_FILE: config/cudy_tr3000_xwrt.config
-  DIY_P1_SH: scripts/diy-immortalwrt.sh
+  DIY_P1_SH: scripts/diy-xwrt.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_WETRANSFER: false
