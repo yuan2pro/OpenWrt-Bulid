@@ -21,9 +21,9 @@ on:
 
 env:
   REPO_URL: https://github.com/istoreos/istoreos
-  REPO_BRANCH: istoreos-22.03
+  REPO_BRANCH: istoreos-24.10
   CURRENT_BRANCH: main
-  FEEDS_CONF: feeds.conf.default
+  FEEDS_CONF: feeds/feeds.conf.default
   CONFIG_FILE: config/x86_64.config
   DIY_P3_SH: scripts/diy-istore.sh
   UPLOAD_BIN_DIR: false
