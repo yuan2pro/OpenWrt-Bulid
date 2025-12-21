@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: cudy_tr3000_openwrt
+name: cudy_tr3000_ubootmod
 
 on:
   repository_dispatch:
@@ -20,11 +20,11 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/openwrt/openwrt.git
-  REPO_BRANCH: main
+  REPO_URL: https://github.com/immortalwrt/immortalwrt.git
+  REPO_BRANCH: openwrt-25.12
   CURRENT_BRANCH: main
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: config/cudy_tr3000.config
+  CONFIG_FILE: config/cudy_tr3000_ubootmod.config
   DIY_P1_SH: scripts/diy-openwrt.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
@@ -64,7 +64,7 @@ jobs:
           sudo -E apt-get -qq autoremove --purge
           sudo -E apt-get -qq clean
           sudo timedatectl set-timezone "$TZ"
-          echo "FIRMWARE_VERSION=$(date +"%Y.%m.%d-%H%M")-cudy_tr3000_openwrt" >> $GITHUB_ENV
+          echo "FIRMWARE_VERSION=$(date +"%Y.%m.%d-%H%M")-cudy_tr3000_ubootmod" >> $GITHUB_ENV
 
       - name: Combine Disks
         run: |
