@@ -24,7 +24,7 @@ env:
   REPO_BRANCH: openwrt-25.12
   CURRENT_BRANCH: main
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: config/cudy_tr3000_ubootmod.config
+  CONFIG_FILE: config/cudy_tr3000_op.config
   DIY_P1_SH: scripts/diy-openwrt.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
