@@ -25,7 +25,7 @@ env:
   CURRENT_BRANCH: main
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: config/cudy_tr3000_op.config
-  DIY_P1_SH: scripts/diy-openwrt.sh
+  DIY_P1_SH: scripts/diy-immortalwrt.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_WETRANSFER: false

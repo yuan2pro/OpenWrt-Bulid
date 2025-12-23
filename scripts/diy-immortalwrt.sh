@@ -65,3 +65,6 @@ git clone https://github.com/eamonxg/luci-app-aurora-config package/luci-app-aur
 #git clone https://github.com/sirpdboy/luci-app-netdata.git package/luci-app-netdata
 #git clone https://github.com/sirpdboy/luci-app-poweroffdevice.git package/luci-app-poweroffdevice
 #git clone https://github.com/sirpdboy/luci-app-autotimeset.git package/luci-app-autotimeset
+
+sed -i -e '/^IMG_PREFIX:=/i BUILD_DATE := $(shell date +%Y%m%d)' \
+-e '/^IMG_PREFIX:=/ s/\($(SUBTARGET)\)/\1-$(BUILD_DATE)/' include/image.mk
